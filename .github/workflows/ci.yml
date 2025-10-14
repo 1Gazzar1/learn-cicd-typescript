@@ -18,5 +18,10 @@ jobs:
         with:
           node-version: 18
 
-      - name: Assert node is working 
+      - name: Assert node is working
         run: node --version
+
+      - name: Install Deps
+        run: npm ci
+      - name: Run Tests
+        run: npm run test
