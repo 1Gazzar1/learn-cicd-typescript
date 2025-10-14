@@ -32,7 +32,7 @@ describe("ApiKey", () => {
     });
 
     test("isn't Valid", () => {
-        const ApiKey = getAPIKey(validHeaders);
+        const ApiKey = getAPIKey(inValidHeaders);
         expect(ApiKey).toBeNull();
     });
 });
