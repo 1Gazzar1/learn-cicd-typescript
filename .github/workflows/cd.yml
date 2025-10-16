@@ -28,4 +28,4 @@ jobs:
         run: npm run build
 
       - name: Test Secret
-        run: echo ${{secrets.TMDB_API_KEY}}
+        run: echo ${{github.repository}} ${{github.repository_id}}
