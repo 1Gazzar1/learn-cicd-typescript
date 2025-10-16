@@ -1,0 +1,9 @@
+services: # inside this each 'service' is a container
+  notely: # the first container called 'notely'
+    # image used in container
+    image: 1gazzar1/notely:latest
+
+    environment: # environment variables ( like -e )
+      - PORT=8080
+    ports: # port forwarding ( like -p )
+      - "8080:8080"
