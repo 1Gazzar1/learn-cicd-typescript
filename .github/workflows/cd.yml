@@ -21,12 +21,11 @@ jobs:
       - name: Node is working
         run: node --version
 
-      - name: Installing Deps 
-        run: npm ci 
+      - name: Installing Deps
+        run: npm ci
 
-      - name: Building app 
-        run: npm run build 
+      - name: Building app
+        run: npm run build
 
-        
-
-      
+      - name: Test Secret
+        run: echo ${{secrets.GITHUB_TOKEN}}
