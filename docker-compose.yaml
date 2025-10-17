@@ -1,3 +1,4 @@
+name: "notely"
 services: # inside this each 'service' is a container
   notely: # the first container called 'notely'
     # image used in container

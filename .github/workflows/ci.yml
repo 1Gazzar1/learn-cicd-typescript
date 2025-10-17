@@ -23,7 +23,7 @@ jobs:
 
       - name: Install Deps
         run: npm ci
-        
+
       - name: Run Tests
         run: npm run test -- --coverage
 
@@ -48,5 +48,36 @@ jobs:
       - name: run Prettier
         run: npm run format:check
 
-      - name: Linting Code 
+      - name: Linting Code
         run: npm run lint -- --max-warnings=0
+  test_artifacts:
+    name: Artifacts
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: make file
+        run: |
+          touch file.txt
+          echo "Hello world !" >> file.txt
+
+      - name: store Artifact
+        uses: actions/upload-artifact@v4
+        with:  
+          name: test1  # without this it will be stored in a folder called 'artifact'
+          path: file.txt # this is the path of the file you want to upload (not where to upload💀)
+      - name: debugging
+        run: ls # outputs file.txt 
+
+  download_artifacts:
+    needs: test_artifacts # run only when 'test_artifact' is completed
+    name: Download Artifacts
+    runs-on: ubuntu-latest
+    steps:
+      - name: download file
+        uses: actions/download-artifact@v4 # not specifying a 'name' will download all artifacts 
+
+      - name: debugging
+        run: ls # outputs test1 (dir), when specifying the name it will output 'file.txt'
+
+      - name: test artifact
+        run: cat ./test1/file.txt # should output "Hello World !"
