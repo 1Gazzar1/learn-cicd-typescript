@@ -23,7 +23,7 @@ jobs:
 
       - name: Install Deps
         run: npm ci
-        
+
       - name: Run Tests
         run: npm run test -- --coverage
 
@@ -48,5 +48,20 @@ jobs:
       - name: run Prettier
         run: npm run format:check
 
-      - name: Linting Code 
+      - name: Linting Code
         run: npm run lint -- --max-warnings=0
+  test_artifacts:
+    name: Artifacts
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: make file
+        run: |
+          touch file.txt
+          echo "Hello world !" >> file.txt
+
+      - name: store Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: test_artifact # this is the name of the folder the artifacts files will be stored in 
+          path: file.txt # this is the path of the file you want to upload (not where to upload💀)
