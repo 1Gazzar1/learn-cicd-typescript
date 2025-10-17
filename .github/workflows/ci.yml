@@ -75,4 +75,4 @@ jobs:
           name: test_artifact # this is the name of the folder that has file.txt 
         
       - name: test artifact 
-        run: echo ./test_artifact/file.txt # should output "Hello World !" 
+        run: cat ./test_artifact/file.txt # should output "Hello World !" 
