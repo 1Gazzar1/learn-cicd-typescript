@@ -63,7 +63,11 @@ jobs:
       - name: store Artifact
         uses: actions/upload-artifact@v4
         with:
+          name: test1 
           path: file.txt # this is the path of the file you want to upload (not where to upload💀)
+      - name: debugging
+        run: ls
+
   download_artifacts:
     needs: test_artifacts # run only when 'test_artifact' is completed
     name: Download Artifacts
