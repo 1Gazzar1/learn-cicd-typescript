@@ -63,5 +63,16 @@ jobs:
       - name: store Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: test_artifact # this is the name of the folder the artifacts files will be stored in 
+          name: test_artifact # this is the name of the folder the artifacts files will be stored in
           path: file.txt # this is the path of the file you want to upload (not where to upload💀)
+  download_artifacts:
+    name: Download Artifacts
+    runs-on: ubuntu-latest
+    steps:
+      - name: download file
+        uses: actions/download-artifact@v4
+        with: 
+          name: test_artifact # this is the name of the folder that has file.txt 
+        
+      - name: test artifact 
+        run: echo ./test_artifact/file.txt # should output "Hello World !" 
