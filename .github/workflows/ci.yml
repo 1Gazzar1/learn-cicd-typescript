@@ -74,6 +74,8 @@ jobs:
         uses: actions/download-artifact@v4
         with: 
           name: test_artifact # this is the name of the folder that has file.txt 
-        
+      
+      - name: debugging 
+        run: ls 
       - name: test artifact 
         run: cat ./test_artifact/file.txt # should output "Hello World !" 
