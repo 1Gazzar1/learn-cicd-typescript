@@ -76,7 +76,7 @@ jobs:
       - name: download file
         uses: actions/download-artifact@v4
         with: 
-          name: test2
+          name: test1 
 
       - name: debugging
         run: ls
