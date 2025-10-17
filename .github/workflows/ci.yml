@@ -63,7 +63,7 @@ jobs:
       - name: store Artifact
         uses: actions/upload-artifact@v4
         with:  
-          name: test1 
+          name: test1  # without this it will be stored in a folder called 'artifact'
           path: file.txt # this is the path of the file you want to upload (not where to upload💀)
       - name: debugging
         run: ls # outputs file.txt 
@@ -74,10 +74,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: download file
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v4 # not specifying a 'name' will download all artifacts 
 
       - name: debugging
-        run: ls # outputs file.txt 
+        run: ls # outputs test1 (dir), when specifying the name it will output 'file.txt'
 
       - name: test artifact
-        run: cat ./test_artifact/file.txt # should output "Hello World !"
+        run: cat ./test1/file.txt # should output "Hello World !"
