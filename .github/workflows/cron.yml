@@ -1,0 +1,16 @@
+name: CRON
+
+on:
+  schedule:
+    - cron: "* * * * *"
+
+jobs:
+  say_cheese:
+    runs-on: ubuntu-latest
+    name: cheese
+
+    steps:
+      - name: cheese is awesome
+        run: echo vitality is such a banger dude.
+
+      - run: echo cheese
